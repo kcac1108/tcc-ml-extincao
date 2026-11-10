@@ -1,0 +1,8 @@
+.venv/
+data/
+.ipynb_checkpoints/
+__pycache__/
+.DS_Store
+
+# Notebook único anterior à divisão em notebooks/ e suas cópias de segurança
+TCC_ML_Extinção*.ipynb

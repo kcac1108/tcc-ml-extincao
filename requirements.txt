@@ -1,0 +1,18 @@
+# Dependências dos notebooks em notebooks/ e do pacote src/tcc_extincao
+# Testado com Python 3.12 e 3.14. No Colab, só o matplotlib-venn precisa ser
+# instalado (a primeira célula de cada notebook faz isso)
+
+numpy==2.5.4
+pandas==3.0.6
+scikit-learn==1.9.1
+imbalanced-learn==0.14.2
+xgboost==3.4.1
+matplotlib==3.11.2
+seaborn==0.13.2
+matplotlib-venn==1.1.2
+gdown==6.4.2
+
+# Ambiente Jupyter (para abrir e rodar o notebook)
+jupyterlab==4.6.4
+notebook==7.6.3
+ipykernel==7.4.0
