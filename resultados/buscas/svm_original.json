@@ -1,0 +1,9 @@
+{
+  "best_params": {
+    "C": 100,
+    "gamma": "scale",
+    "kernel": "rbf"
+  },
+  "best_score": 0.2438888888888889,
+  "tempo_busca_s": 0.894071102142334
+}

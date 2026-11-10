@@ -1,0 +1,11 @@
+{
+  "best_params": {
+    "modelo__max_depth": null,
+    "modelo__max_features": "sqrt",
+    "modelo__min_samples_leaf": 4,
+    "modelo__min_samples_split": 10,
+    "modelo__n_estimators": 200
+  },
+  "best_score": 0.9527089783281735,
+  "tempo_busca_s": 262.50025606155396
+}

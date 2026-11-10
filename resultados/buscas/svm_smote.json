@@ -1,0 +1,9 @@
+{
+  "best_params": {
+    "modelo__C": 100,
+    "modelo__gamma": "scale",
+    "modelo__kernel": "rbf"
+  },
+  "best_score": 0.4535541752933058,
+  "tempo_busca_s": 2.1034088134765625
+}

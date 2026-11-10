@@ -1,0 +1,11 @@
+{
+  "best_params": {
+    "modelo__colsample_bytree": 0.8,
+    "modelo__learning_rate": 0.1,
+    "modelo__max_depth": 3,
+    "modelo__n_estimators": 100,
+    "modelo__subsample": 1.0
+  },
+  "best_score": 0.9500033506225456,
+  "tempo_busca_s": 136.97221088409424
+}
