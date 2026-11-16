@@ -60,15 +60,3 @@ jupyter lab notebooks/
 Os `GridSearchCV` são a parte demorada. Como o balanceamento (SMOTE/SMOTENC/ENN) é refeito dentro de cada fold da validação cruzada, a busca completa leva cerca de 30 minutos numa máquina com 8 núcleos e de 5 a 6 horas no Colab gratuito (2 núcleos).
 
 Por padrão, os notebooks **reaproveitam** os melhores hiperparâmetros salvos em `resultados/buscas/` e treinam só o modelo final, que é o mesmo modelo escolhido pela busca. Assim, cada notebook roda em poucos minutos. Para refazer as buscas, descomente `config.REFAZER_BUSCAS = True` na célula de imports do notebook (ou defina a variável de ambiente `TCC_REFAZER_BUSCAS=1`).
-
-## Correções metodológicas (nov/2026)
-
-Correções aplicadas depois da primeira versão dos experimentos (os resultados numéricos mudaram em relação à versão anterior):
-
-1. **Imputação depois do split** (Seção 5.3): os valores ausentes eram preenchidos com a mediana do dataset inteiro, antes da divisão treino/teste. Agora a mediana é calculada só no treino.
-2. **SMOTE sem `redlistCategory`** (Seção 6.2): as amostras sintéticas dos experimentos sem vazamento eram geradas com `redlistCategory` participando do cálculo dos vizinhos. Agora o SMOTE é refeito sem a coluna.
-3. **Predições sobrescritas no trade-off** (Seção 6.7): o loop do trade-off sobrescrevia `y_pred_rf` e `y_pred_svm`, e a tabela consolidada registrava os modelos com apenas 5 features. Agora o loop usa variáveis próprias.
-4. **Balanceamento dentro da validação cruzada** (Seções 7, 8.4, 9.2 e 13): o `GridSearchCV` rodava sobre dados já balanceados, então amostras sintéticas criadas a partir de um fold apareciam na validação de outro, inflando o F1 da validação cruzada. Agora SMOTE/SMOTENC, ENN e `StandardScaler` ficam dentro de um `Pipeline` do imblearn e são refeitos em cada fold.
-5. **SVM padrão escalonado** (Seções 8.3, 12.1 e 12.2): os SVMs sem tuning com SMOTENC não eram escalonados, enquanto os otimizados eram. A comparação padrão × otimizado misturava o efeito do tuning com o do escalonamento.
-6. **Diagnóstico de fronteira sem `redlistCategory`** (Seção 11): o Random Forest do Passo 1 usava `redlistCategory`, da qual o rótulo é derivado. A lista de espécies suspeitas (e o Teste 3) depende dessa correção.
-7. **Rótulo do SVM otimizado com SMOTENC** (Seção 10): estava registrado como `SMOTENC (Escalado)`, o que quebrava os gráficos da Seção 13.4.
